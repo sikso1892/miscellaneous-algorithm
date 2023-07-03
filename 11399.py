@@ -3,8 +3,12 @@ import sys
 sys.stdin = open('input.txt', 'r')
 input = sys.stdin.readline
 
-n = input()
-arr = list(map(int, input().split()))
+n, k = map(int, input().split())
+
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
+
 
 arr.sort()
 acc = 0
