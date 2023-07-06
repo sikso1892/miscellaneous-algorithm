@@ -17,4 +17,5 @@ else:
 for rx in nums[1:]:
     rx = sum(map(int, (rx.split('+'))))
     acc -= rx
+    
 print(acc)
