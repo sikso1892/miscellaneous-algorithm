@@ -5,7 +5,7 @@ input = sys.stdin.readline
 
 n, m = map(int, sys.stdin.readline().split())
 arr = list(map(int, sys.stdin.readline().split()))
-answer = 0
+
 # def rec(acc, i, cnt):
 #     if i >= len(arr) or acc > m:
 #         return 0
@@ -18,15 +18,13 @@ answer = 0
 #         rec(acc, i, cnt)
 
 # answer = rec(0, 0, 0)
-
+answer = 0
 for i in range(0, n):
     for j in range(i+1, n-1):
         for k in range(j+1, n):
             __sum = sum((arr[i],arr[j],arr[k]))
             if answer < __sum <= m:
                 answer = __sum
-            
-            
 
 print(answer)
     
