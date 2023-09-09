@@ -1,0 +1,20 @@
+def solution(word):
+    global cnt
+    answer = 0
+    alphas = 'AEIOU'
+    dic = {}
+    cnt = 0
+    def dfs(alpha):
+        global cnt
+        dic[alpha] = cnt
+        cnt += 1
+
+        if len(alpha) == 5:
+            return
+        
+        for c in alphas:
+            dfs(alpha+c)
+            
+    dfs('')
+    answer = dic[word]
+    return answer
