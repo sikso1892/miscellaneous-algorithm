@@ -3,18 +3,31 @@ sys.stdin = open('input.txt','r')
 
 n, t = map(int, input().split())
 
-bus = []
+time = []
 for _ in range(n):
-    bus.append(list(map(int, input().split())))
+    s, l, c = map(int, input().split())
+    if s+l*(c-1) < t:
+        continue
 
-bus_time = []
-for si, li, ci in bus:
-    for time in range(si, si+li*ci, li):
-        if t <= time:
-            bus_time.append(time-t)
-            break
+    start = 0
+    end = c-1
+    result = 0
 
-if bus_time:
-    print(min(bus_time))
+    while start <= end:
+        mid = (start+end)//2
+        nt = s+l*mid
+        
+        if nt >= t:
+            result = nt
+            end = mid-1
+        
+        else:
+            start = mid+1
+
+    time.append(result-t)
+
+if time:
+    print(min(time))
+
 else:
     print(-1)
